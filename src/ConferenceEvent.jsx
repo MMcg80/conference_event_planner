@@ -83,7 +83,9 @@ const ConferenceEvent = () => {
         });
         return items;
       };
-
+      
+      const items = getItemsFromTotalCost();
+      
       const ItemsDisplay = ({ items }) => {
         console.log(items);
         return <>
@@ -137,11 +139,7 @@ const ConferenceEvent = () => {
                   totalCost += item.cost * numberOfPeople;
                 }
               });
-              const totalCosts = {
-                venue: venueTotalCost,
-                av: avTotalCost,
-                meals: mealsTotalCost,
-            };
+            
         }
     return totalCost;
     };
@@ -156,6 +154,12 @@ const ConferenceEvent = () => {
           }
         }
       }
+
+      const totalCosts = {
+        venue: venueTotalCost,
+        av: avTotalCost,
+        meals: mealsTotalCost,
+    };
 
     return (
         <>
