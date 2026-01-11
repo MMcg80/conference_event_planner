@@ -48,8 +48,8 @@ const ConferenceEvent = () => {
         const item = mealsItems[index];
         if (item.selected) {
             // Ensure numberOfPeople is set before toggling selection
-            // const newNumberOfPeople = item.selected ? numberOfPeople : 0;
-            dispatch(toggleMealSelection(index));
+            const newNumberOfPeople = item.selected ? numberOfPeople : 0;
+            dispatch(toggleMealSelection(index, newNumberOfPeople));
         }
         else {
             dispatch(toggleMealSelection(index));
@@ -160,6 +160,8 @@ const ConferenceEvent = () => {
         av: avTotalCost,
         meals: mealsTotalCost,
     };
+
+    const total_amount = totalCosts.venue + totalCosts.av + totalCosts.meals;
 
     return (
         <>
@@ -302,6 +304,7 @@ const ConferenceEvent = () => {
                                 </div>
                             ))}
                         </div>
+
                         <div className="total_cost">Total Cost: {mealsTotalCost}</div>
 
 
